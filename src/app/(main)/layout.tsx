@@ -38,7 +38,10 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <meta name="google" content="notranslate" />
       </head>
-      <body className={`${montserrat.className} antialiased`}>
+      <body
+        className={`${montserrat.className} antialiased`}
+        suppressHydrationWarning
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LocaleProvider>
             <ClientProvider>

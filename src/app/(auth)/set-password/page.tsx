@@ -121,6 +121,8 @@ function SetPasswordForm() {
             width={70}
             height={70}
             className="h-16 w-auto"
+            style={{ height: "auto" }}
+            priority
           />
         </div>
       </div>

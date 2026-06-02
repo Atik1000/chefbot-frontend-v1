@@ -32,7 +32,7 @@ import { FC, useRef, useState } from "react";
 
 const RestaurantDetails: FC = () => {
   const t = useTranslations("restaurants.details");
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const { data: restaurant, isLoading } = useGetSingleRestaurantQuery(id);
   const [updateRestaurantInfo, { isLoading: isRestaurantInfoUpdating }] =
     useUpdateRestaurantInfoMutation();

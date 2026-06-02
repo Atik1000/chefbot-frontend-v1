@@ -29,6 +29,8 @@ export function SiteHeader() {
               width={56}
               height={56}
               className="h-14 w-auto"
+              style={{ height: "auto" }}
+              priority
             />
           </a>
         </div>

@@ -21,7 +21,7 @@ import { toast } from "sonner";
 const MenuCard: FC<{ menuItem: MenuItemData }> = ({ menuItem }) => {
   const t = useTranslations("restaurants.menu.cards");
   const c = useTranslations("restaurants.menu.form.category.options");
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const [deleteSingleMenu] = useDeleteSingleMenuMutation();
   const { data } = useGetLoggedUserQuery({});
 
