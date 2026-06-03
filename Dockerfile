@@ -6,6 +6,13 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm install
 
+# Public env vars are inlined at build time by Next.js, so they must be
+# available during `npm run build`. Override at build via --build-arg if needed.
+ARG NEXT_PUBLIC_BASEURL=https://api.chef-bot.de
+ARG NEXT_PUBLIC_WEBSOCKETURL=wss://api.chef-bot.de
+ENV NEXT_PUBLIC_BASEURL=$NEXT_PUBLIC_BASEURL
+ENV NEXT_PUBLIC_WEBSOCKETURL=$NEXT_PUBLIC_WEBSOCKETURL
+
 # Copy source and build
 COPY . .
 RUN npm run build
