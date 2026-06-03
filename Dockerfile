@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Install deps
 COPY package.json package-lock.json* ./
-RUN npm ci
+RUN npm install
 
 # Copy source and build
 COPY . .
@@ -20,7 +20,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
 # Install production deps
-RUN npm ci --production
+RUN npm install --omit=dev
 
 EXPOSE 3000
 CMD ["npm", "run", "start"]
